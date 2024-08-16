@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../assests/image/favicon.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Login Form</title>
+    <style>
+        
+
+        .form-container {
+            width: 350px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* margin-top: 60px; */
+            margin: 60px auto;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .toggle-link,
+        .forgot-password-link {
+            text-align: center;
+            display: block;
+            margin: 10px 0;
+            color: #007bff;
+            cursor: pointer;
+            font-size: 19px;
+        }
+
+        .forgot-password-link {
+            font-size: 19px;
+        }
+
+        .forgot-password-link:hover,
+        .toggle-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="logo">Portfolio</a>
+
+        <div class='bx bx-menu' id="menu-icon"></div>
+
+        <ul class="navbar">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="assignment.html">Assignments</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </header>
+    
+    <section>
+        <div class="form-container">
+            <h2 id="form-title">Log In</h2>
+    
+            <form action ="#" id="login-signup-form">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <input type="text" id="username" placeholder="Username" style="display:none;">
+                <button type="submit">Submit</button>
+            </form>
+    
+            <a class="forgot-password-link" href="#">Forgot Password?</a>
+            <a class="toggle-link" id="toggle-link">Don't have an account? Sign Up</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="social">
+            <a href="https://www.instagram.com/mr.ayush_111/"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.linkedin.com/in/ayush-arjun-pande/"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://github.com/ayush-1105"><i class='bx bxl-github'></i></a>
+                <a href="https://x.com/Ayush_1__"><i class='bx bxl-twitter'></i></a>
+        </div>
+
+        <p class="copyright">
+            &copy; Ayush | All Rights Reserved
+        </p>
+    </footer>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="../js/script.js"></script>
+    <script>
+        const formTitle = document.getElementById('form-title');
+        const toggleLink = document.getElementById('toggle-link');
+        const usernameInput = document.getElementById('username');
+        const form = document.getElementById('login-signup-form');
+        let isLogin = true;
+
+        toggleLink.addEventListener('click', () => {
+            if (isLogin) {
+                formTitle.textContent = 'Sign Up';
+                toggleLink.textContent = 'Already have an account? Log In';
+                usernameInput.style.display = 'block';
+            } else {
+                formTitle.textContent = 'Log In';
+                toggleLink.textContent = "Don't have an account? Sign Up";
+                usernameInput.style.display = 'none';
+            }
+            isLogin = !isLogin;
+        });
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            if (isLogin) {
+                alert('Logged in');
+            } else {
+                alert('Signed up');
+            }
+        });
+    </script>
+</body>
+</html>
